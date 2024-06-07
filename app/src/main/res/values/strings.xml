@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">OPSC PART 3</string>
+    <string-array name="dropdown_options">
+        <item>TASK 1: StartTime-08:00am, EndTime-16:00pm</item>
+        <item>TASK 2: StartTime-10:00am, EndTime-14:00pm</item>
+        <item>TASK 3: StartTime-10:30am, EndTime-14:30pm</item>
+        <item>TASK 4: StartTime-11:00am, EndTime-14:00pm</item>
+        <item>TASK 5: StartTime-12:00am, EndTime-15:00pm</item>
+        <item>TASK 6: StartTime-13:00am, EndTime-18:00pm</item>
+    </string-array>
+</resources>
