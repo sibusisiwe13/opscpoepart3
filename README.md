@@ -7,7 +7,7 @@
 
 ## Group Members:
 
-ST10083915(Sibusisiwe Sbahle Kunene), mST10083777 (Nomfundo Lindelwa Mthabela)
+## ST10083915(Sibusisiwe Sbahle Kunene), ST10083777 (Nomfundo Lindelwa Mthabela)
 
 Welcome to the Schedule Made Simple (SMS) Time Tracking App! This application is designed to streamline your project management by helping you track your time effectively. Below is an overview of the app's features and functionalities:
 
