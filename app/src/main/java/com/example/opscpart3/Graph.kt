@@ -60,12 +60,12 @@ class Graph : AppCompatActivity() {
             .whereGreaterThan("date", start)
             .get()
             .addOnSuccessListener { result ->
-                val timesheets = result.toObjects(Timesheets::class.java)
+                val timesheets = result.toObjects(Timesheet::class.java)
                 showPieChart(timesheets)
             }
     }
 
-    private fun showPieChart(timesheets: List<Timesheets>) {
+    private fun showPieChart(timesheets: List<Timesheet>) {
         val totalHours = timesheets.sumOf { it.hoursWorked.toInt() }
         val entries = ArrayList<PieEntry>()
 
