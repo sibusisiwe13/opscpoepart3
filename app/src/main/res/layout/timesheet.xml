@@ -140,18 +140,6 @@
         tools:layout_editor_absoluteY="606dp" />
 
     <Button
-        android:id="@+id/edit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/cardview_dark_background"
-        android:text="Edit"
-        android:textColor="@android:color/black"
-        android:textStyle="bold"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="285dp"
-        tools:layout_editor_absoluteY="606dp" />
-
-    <Button
         android:id="@+id/delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -160,7 +148,7 @@
         android:textColor="@android:color/black"
         android:textStyle="bold"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="152dp"
+        tools:layout_editor_absoluteX="283dp"
         tools:layout_editor_absoluteY="606dp" />
 
     <ImageView

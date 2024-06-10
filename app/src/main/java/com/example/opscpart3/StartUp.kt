@@ -3,10 +3,9 @@ package com.example.opscpart3
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import android.widget.ImageView
 
-class MainActivity : AppCompatActivity() {
+class StartUp : AppCompatActivity() {
     private lateinit var imageView2 : ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {

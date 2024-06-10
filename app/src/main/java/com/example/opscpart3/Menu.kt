@@ -1,5 +1,6 @@
 package com.example.opscpart3
 
+
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
@@ -19,12 +20,22 @@ class Menu : AppCompatActivity() {
             val intent = Intent(this,Timesheet::class.java)
             startActivity(intent)
         }
+        val GoalSettingbtn: Button = findViewById(R.id.GoalSettingbtn)
+        GoalSettingbtn.setOnClickListener {
+            val intent = Intent(this, GoalSetting::class.java)
+            startActivity(intent)
+        }
         val settingbtn: Button = findViewById(R.id.settingbtn)
         settingbtn.setOnClickListener {
             val intent = Intent(this, Settings::class.java)
             startActivity(intent)
         }
 
+        val btnGraph: Button = findViewById(R.id.btnGraph)
+        btnGraph.setOnClickListener {
+            val intent = Intent(this,Graph::class.java)
+            startActivity(intent)
+        }
 
         val chatsbtn: Button = findViewById(R.id.chatsbtn)
         chatsbtn.setOnClickListener {

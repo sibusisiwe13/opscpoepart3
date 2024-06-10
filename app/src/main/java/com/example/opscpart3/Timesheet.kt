@@ -15,9 +15,15 @@ import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
+import java.util.UUID
 
+private val PICK_IMAGE_REQUEST = 100
+private var filePath: Uri? = null
 class Timesheet : AppCompatActivity() {
 
     private lateinit var date: EditText
@@ -26,28 +32,42 @@ class Timesheet : AppCompatActivity() {
     private lateinit var description: EditText
     private lateinit var dropdown: Spinner
     private lateinit var create: Button
-    private lateinit var edit: Button
     private lateinit var delete: Button
     private lateinit var photo: ImageView
     private lateinit var addimage: Button
     private lateinit var sms: Button
+    private lateinit var storage: FirebaseStorage
+    private lateinit var db:FirebaseFirestore
     private lateinit var selectedCategory: EditText
-    private lateinit var auth: FirebaseAuth
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == 200 && resultCode == RESULT_OK && data != null) {
-            val imageUri: Uri? = data.data
-            photo.setImageURI(imageUri)
+
+
+    override fun onActivityResult(requestCode:Int, resultCode: Int, data: Intent?){
+        super.onActivityResult(resultCode, requestCode, data )
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data !=null && data.data!= null){
+            filePath = data.data
+            uploadImage()
+        }
+        addimage.setOnClickListener {
+            val intent = Intent()
+            intent.type = "image/*"
+            intent.action= Intent.ACTION_GET_CONTENT
+            startActivityForResult(Intent.createChooser(intent, "Choose preferable image"), PICK_IMAGE_REQUEST)
         }
     }
+
+
+
+
+
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.timesheet)
 
-        auth = FirebaseAuth.getInstance()
+        db = FirebaseFirestore.getInstance()
+        storage= FirebaseStorage.getInstance()
         date = findViewById(R.id.date)
         endTime = findViewById(R.id.endTime)
         startTime = findViewById(R.id.startTime)
@@ -57,7 +77,6 @@ class Timesheet : AppCompatActivity() {
         sms = findViewById(R.id.logo)
         selectedCategory = findViewById(R.id.SelectedCategory)
         create = findViewById(R.id.create)
-        edit = findViewById(R.id.edit)
         delete = findViewById(R.id.delete)
         dropdown = findViewById(R.id.dropdown)
         fetchCategories()
@@ -80,7 +99,7 @@ class Timesheet : AppCompatActivity() {
             }}
 
         create.setOnClickListener {
-            startActivity(Intent(this, Task::class.java))
+            startActivity(Intent(this, TimesheetList::class.java))
             saveTask()
         }
 
@@ -97,24 +116,21 @@ class Timesheet : AppCompatActivity() {
             alertDialog.show()
         }
 
-        edit.setOnClickListener {
-            editTask()
-        }
 
-        addimage.setOnClickListener {
-            val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-            startActivityForResult(intent, 200)
+
+    }
+    private fun uploadImage() {
+        if (filePath != null) {
+            val ref = storage.reference.child("images/" + UUID.randomUUID().toString())
+            ref.putFile(filePath!!)
+                .addOnSuccessListener {}
+            ref.downloadUrl.addOnSuccessListener { uri ->
+                saveTask(uri.toString())
+            }
         }
     }
 
-    private fun editTask() {
-        val date = intent.getStringExtra("date")
-        val endTime = intent.getStringExtra("endTime")
-        val startTime = intent.getStringExtra("startTime")
-        val description = intent.getStringExtra("description")
-        val categories =intent.getStringExtra("categories")
 
-    }
 
     private fun deleteTask(taskId: String) {
         val alertDialog = AlertDialog.Builder(this)
@@ -145,13 +161,22 @@ class Timesheet : AppCompatActivity() {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
-    private fun saveTask() {
+    private fun saveTask(photoUrl: String? = null) {
         val date = date.text.toString()
         val endTime = endTime.text.toString()
         val startTime = startTime.text.toString()
         val description = description.text.toString()
         val categories = dropdown.selectedItem.toString()
-
+val Timesheet = hashMapOf(
+    "date" to date,
+    "endTime" to endTime,
+    "startTime" to startTime,
+    "description" to description,
+    "categories" to categories,
+    "photoUrl" to photoUrl
+)
+        db.collection("Timesheets").add(Timesheet)
+            .addOnSuccessListener { documentReference -> }
 
         TODO("Not yet implemented")
 
@@ -171,3 +196,5 @@ class Timesheet : AppCompatActivity() {
         dropdown.adapter = adapter
     }
 }
+
+

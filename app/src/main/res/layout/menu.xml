@@ -7,6 +7,18 @@
     tools:context=".Menu">
 
     <Button
+        android:id="@+id/btnGraph"
+        android:layout_width="128dp"
+        android:layout_height="93dp"
+        android:background="@color/cardview_dark_background"
+        android:text="Graph"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="252dp"
+        tools:layout_editor_absoluteY="176dp" />
+
+    <Button
         android:id="@+id/timesheetbtn"
         android:layout_width="128dp"
         android:layout_height="93dp"
@@ -15,8 +27,8 @@
         android:textColor="@android:color/black"
         android:textStyle="bold"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="132dp"
-        tools:layout_editor_absoluteY="139dp" />
+        tools:layout_editor_absoluteX="36dp"
+        tools:layout_editor_absoluteY="176dp" />
 
     <TextView
         android:id="@+id/textView"
@@ -28,18 +40,6 @@
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="179dp"
         tools:layout_editor_absoluteY="45dp" />
-
-    <Button
-        android:id="@+id/calendarbtn"
-        android:layout_width="128dp"
-        android:layout_height="93dp"
-        android:background="@color/cardview_dark_background"
-        android:text="Calendar"
-        android:textColor="@android:color/black"
-        android:textStyle="bold"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="307dp" />
 
     <Button
         android:id="@+id/invoicebtn"
@@ -54,16 +54,16 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/schedulebtn"
+        android:id="@+id/GoalSettingbtn"
         android:layout_width="128dp"
         android:layout_height="93dp"
         android:background="@color/cardview_dark_background"
-        android:text="Schedule and Events"
+        android:text="Goal Settings"
         android:textColor="@android:color/black"
         android:textStyle="bold"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="459dp" />
+        tools:layout_editor_absoluteY="307dp" />
 
     <Button
         android:id="@+id/chatsbtn"
@@ -74,8 +74,8 @@
         android:textColor="@android:color/black"
         android:textStyle="bold"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="252dp"
-        tools:layout_editor_absoluteY="459dp" />
+        tools:layout_editor_absoluteX="153dp"
+        tools:layout_editor_absoluteY="467dp" />
 
     <Button
         android:id="@+id/settingbtn"
@@ -88,4 +88,5 @@
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="153dp"
         tools:layout_editor_absoluteY="595dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

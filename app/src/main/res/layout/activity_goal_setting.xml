@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#89C">
+
+    <EditText
+        android:id="@+id/minGoalEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Minimum Goal"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/maxGoalEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Maximum Goal"
+        android:layout_below="@id/minGoalEditText"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save Goals"
+        android:layout_below="@id/maxGoalEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/btnViewChart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/saveButton"
+        android:layout_alignStart="@+id/saveButton"
+        android:layout_alignEnd="@+id/saveButton"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-23dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="-25dp"
+        android:layout_marginBottom="491dp"
+        android:text="View Chart" />
+
+</RelativeLayout>

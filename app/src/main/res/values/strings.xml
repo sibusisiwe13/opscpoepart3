@@ -8,4 +8,7 @@
         <item>TASK 5: StartTime-12:00am, EndTime-15:00pm</item>
         <item>TASK 6: StartTime-13:00am, EndTime-18:00pm</item>
     </string-array>
+    <string name="title_activity_goal_setting">GoalSetting</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>
