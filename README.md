@@ -67,4 +67,4 @@ Welcome to the Schedule Made Simple (SMS) Time Tracking App! This application is
 • # Graph: The user will able to see a visual representation of total hours worked.
  
 
-# Thank you for choosing Schedule Made Simple for your time-tracking needs! For any assistance or inquiries, feel free to contact us through the app.
+Thank you for choosing Schedule Made Simple for your time-tracking needs! For any assistance or inquiries, feel free to contact us through the app.
